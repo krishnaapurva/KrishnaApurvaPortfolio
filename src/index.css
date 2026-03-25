@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0f172a;
+  --secondary: #1e293b;
+  --accentBlue: #38bdf8;
+  --accentGreen: #22c55e;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glass {
+  background: rgba(30, 41, 59, 0.48);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-strong {
+  background: rgba(30, 41, 59, 0.58);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.section {
+  scroll-margin-top: 96px;
+}
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(to right, rgba(56, 189, 248, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 197, 94, 0.09) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 30% 10%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 62%);
+}
+
+.bg-orb {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-orb::before,
+.bg-orb::after {
+  content: "";
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border-radius: 9999px;
+  filter: blur(68px);
+  opacity: 0.4;
+}
+
+.bg-orb::before {
+  background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.9), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(34, 197, 94, 0.7), transparent 60%);
+  left: -150px;
+  top: -180px;
+  transform: translate3d(0, 0, 0);
+  animation: float1 14s ease-in-out infinite;
+}
+
+.bg-orb::after {
+  background: radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.75), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(56, 189, 248, 0.65), transparent 60%);
+  right: -210px;
+  bottom: -240px;
+  animation: float2 18s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(-12px, -10px) scale(1);
+  }
+  50% {
+    transform: translate(26px, 16px) scale(1.05);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(14px, 10px) scale(1);
+  }
+  50% {
+    transform: translate(-18px, -14px) scale(1.07);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .bg-orb::before,
+  .bg-orb::after {
+    animation: none;
+  }
+}
