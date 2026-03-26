@@ -128,7 +128,7 @@ export function NavBar() {
             className="md:hidden"
           >
             <div className="mx-auto max-w-6xl px-4 pb-4">
-              <div className="glass rounded-2xl p-2.5 border border-white/10">
+              <div className="glass-strong rounded-2xl p-2.5 border border-white/10">
                 {items.map((it) => {
                   const isActive = it.id === activeId
                   return (
