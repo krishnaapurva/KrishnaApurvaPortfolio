@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Button } from '../components/Button'
 import { ProfileAvatar } from '../components/ProfileAvatar'
 import { Reveal } from '../components/Reveal'
+import { publicPath } from '../lib/publicPath'
 import { scrollToSection } from '../lib/scroll'
 
 export function HeroSection() {
@@ -114,7 +115,7 @@ export function HeroSection() {
               <Button
                 variant="ghost"
                 size="lg"
-                href="/resume.pdf"
+                href={publicPath('resume.pdf')}
                 downloadFileName="Resume_Krishna_Apurva_Data_Engineer.pdf"
               >
                 Download Resume

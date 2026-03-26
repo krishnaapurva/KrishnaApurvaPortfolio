@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { useMemo, useState } from 'react'
+import { publicPath } from '../lib/publicPath'
 
 const gradientConic =
   'conic-gradient(from_0deg,#38BDF8,#22C55E,#38BDF8)'
@@ -37,6 +38,7 @@ function initialsFallback() {
 export function ProfileAvatar() {
   const reduced = useReducedMotion()
   const [imgOk, setImgOk] = useState(true)
+  const profileSrc = publicPath('assets/profile.png')
 
   const particleStyle = useMemo(() => {
     return {
@@ -103,7 +105,7 @@ export function ProfileAvatar() {
             <div className="relative overflow-hidden rounded-full size-full bg-white/5 border border-white/10 backdrop-blur-sm">
               {imgOk ? (
                 <img
-                  src="/assets/profile.png"
+                  src={profileSrc}
                   alt="Krishna Apurva"
                   className="h-full w-full object-cover"
                   onError={() => setImgOk(false)}
